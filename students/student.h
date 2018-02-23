@@ -19,4 +19,5 @@ struct student {
 void inputMarks(int* marks, int count);
 void inputStudent(student* s);
 void outputStudent(student s);
+void fillMarks(int* marks);
 //void changeMark(student* student);
