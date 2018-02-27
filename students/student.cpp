@@ -1,6 +1,7 @@
 #include "stdafx.h"
 using namespace std;
 
+
 void  inputMarks(int* marks, int count) {
 	for (int i = 0; i < count; i++) {
 		cout << i + 1 << " mark: ";
@@ -38,16 +39,39 @@ void inputStudent(student* s) {
 	cin >> s->yearAdmission;
 
 	cout << "phisics : ";
-	fillMarks(s->phisMark);
+	cout << "input count of marks: ";
+	int countMarks;
+	cin >> countMarks;
+
+	s->phisMark = allocateMemory(countMarks);
+	cout << "input marks: " << endl;
+	inputMarks(s->phisMark, countMarks);
 
 	cout << " comp-science : ";
-	fillMarks(s->infoMark);
+	cout << "input count of marks: ";
+	cin >> countMarks;
+
+	s->infoMark = allocateMemory(countMarks);
+	cout << "input marks: " << endl;
+	inputMarks(s->infoMark, countMarks);
 
 	cout << " math : ";
-	fillMarks(s->mathMark);
+	cout << "input count of marks: ";
+	cin >> countMarks;
 
+	s->mathMark = allocateMemory(countMarks);
+	cout << "input marks: " << endl;
+	inputMarks(s->mathMark, countMarks);
+
+	
 }
 ;
+
+void outputMarks(int* marks, int count) {
+	for (int i = 0; i < count; i++) {
+		cout << marks[i] << " , ";
+	}
+}
 void outputStudent(student s) {
 	cout << "first name : " << s.firstName << endl;
 	cout << "last name :" << s.lastName << endl;
@@ -59,20 +83,16 @@ void outputStudent(student s) {
 	}
 	cout << "year of birth: " << s.yearBirth << endl;
 	cout << "year of admission: " << s.yearAdmission << endl;
+
 	cout << "marks of phisics : ";
-	for (int i = 0; i < COUNT_MARKS; i++) {
-		cout << s.phisMark[i] << " , ";
-	}
+	outputMarks(s.phisMark, COUNT_MARKS);
 
 	cout << endl << "marks of math : ";
-	for (int i = 0; i < COUNT_MARKS; i++) {
-		cout << s.mathMark[i] << " , ";
-	}
+	outputMarks(s.mathMark, COUNT_MARKS);
 
-	cout << "marks of comp-science : ";
-	for (int i = 0; i < COUNT_MARKS; i++) {
-		cout << s.infoMark[i] << " , ";
-	}
+	cout << endl << "marks of comp-science : ";
+	outputMarks(s.infoMark, COUNT_MARKS);
+	
 	cout << endl;
 }
 //void changeMark(student* student) {

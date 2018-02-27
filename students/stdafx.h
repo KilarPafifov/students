@@ -16,5 +16,7 @@
 #include "gender.h"
 #include "memory.h"
 #include "student.h"
+#include "group.h"
+#include "groupOperations.h"
 #include <iostream>
 

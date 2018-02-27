@@ -6,9 +6,17 @@
 
 int main()
 {
-	student s1;
-	inputStudent(&s1);
-	outputStudent(s1);
+	int size;
+	int id;
+	group firstGroup;
+	cout << "put size of group :";
+	cin >> size;
+	cout << "put id ";
+	cin >> id;
+	firstGroup = inputGroup(size, id);
+	outputGroup(firstGroup);
+	outputStudent(getBestStudent(firstGroup));
+
 	system("pause");
 
     return 0;
