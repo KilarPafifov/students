@@ -9,14 +9,14 @@ void  inputMarks(int* marks, int count) {
 	}
 }
 
-void fillMarks(int* marks) {
+void fillMarks(int** marks) {
 	cout << "input count of marks: ";
 	int countMarks;
 	cin >> countMarks;
 
-	marks = allocateMemory(countMarks);
+	*marks = allocateMemory(countMarks);
 	cout << "input marks: " << endl;
-	inputMarks(marks, countMarks);
+	inputMarks(*marks, countMarks);
 }
 
 void inputStudent(student* s) {
@@ -39,39 +39,21 @@ void inputStudent(student* s) {
 	cin >> s->yearAdmission;
 
 	cout << "phisics : ";
-	cout << "input count of marks: ";
-	int countMarks;
-	cin >> countMarks;
-
-	s->phisMark = allocateMemory(countMarks);
-	cout << "input marks: " << endl;
-	inputMarks(s->phisMark, countMarks);
+	fillMarks(&s->phisMark);
 
 	cout << " comp-science : ";
-	cout << "input count of marks: ";
-	cin >> countMarks;
-
-	s->infoMark = allocateMemory(countMarks);
-	cout << "input marks: " << endl;
-	inputMarks(s->infoMark, countMarks);
+	fillMarks(&s->infoMark);
 
 	cout << " math : ";
-	cout << "input count of marks: ";
-	cin >> countMarks;
-
-	s->mathMark = allocateMemory(countMarks);
-	cout << "input marks: " << endl;
-	inputMarks(s->mathMark, countMarks);
-
-	
+	fillMarks(&s->mathMark);
 }
-;
 
 void outputMarks(int* marks, int count) {
 	for (int i = 0; i < count; i++) {
 		cout << marks[i] << " , ";
 	}
 }
+
 void outputStudent(student s) {
 	cout << "first name : " << s.firstName << endl;
 	cout << "last name :" << s.lastName << endl;
@@ -95,6 +77,4 @@ void outputStudent(student s) {
 	
 	cout << endl;
 }
-//void changeMark(student* student) {
-	// cout << student->lastName;
-//}
+

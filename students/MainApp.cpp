@@ -14,7 +14,7 @@ int main()
 	cout << "put id ";
 	cin >> id;
 	firstGroup = inputGroup(size, id);
-	outputGroup(firstGroup);
+	//outputGroup(firstGroup);
 	outputStudent(getBestStudent(firstGroup));
 
 	system("pause");

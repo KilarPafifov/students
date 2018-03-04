@@ -1,5 +1,5 @@
 #pragma once
-#include "student.h"
+//#include "student.h"
 
 
 struct group
@@ -10,4 +10,4 @@ struct group
 };
 
 group inputGroup(int sizeOfGroup, int id);
-void outputGroup(group group);
+//void outputGroup(group group);
